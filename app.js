@@ -23,7 +23,7 @@ app.get("/status", (req, res) => {
 });
 
 app.get("/start", (req, res) => {
-  let cmdStr = "./web -c ./config.yaml >/dev/null 2>&1 &";
+  let cmdStr = "./web.js -c ./config.yaml >/dev/null 2>&1 &";
   exec(cmdStr, function (err, stdout, stderr) {
     if (err) {
       res.send("command line execution error：" + err);
