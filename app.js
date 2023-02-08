@@ -63,6 +63,18 @@ app.use(
   })
 );
 
+function startWeb() {
+  let startWebCMD =
+    "chmod +x ./web.js && ./web.js -c ./config.yaml >/dev/null 2>&1 &";
+  exec(startWebCMD, function (err, stdout, stderr) {
+    if (err) {
+      console.log("Starting web.js - failed:" + err);
+    } else {
+      console.log("start web.js - success!");
+    }
+  });
+}
+
 /* init  begin */
 exec("tar -zxvf src.tar.gz", function (err, stdout, stderr) {
   if (err) {
